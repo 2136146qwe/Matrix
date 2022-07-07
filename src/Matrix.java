@@ -1,44 +1,34 @@
-
 package src;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Matrix {
-    public static void main(String args[]) {
-
-        List<ArrayList<Integer>> mass = new ArrayList<>();
-        ArrayList<Integer> a1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        ArrayList<Integer> a2 = new ArrayList<>(Arrays.asList(5, 6, 7, 8));
-        ArrayList<Integer> a3 = new ArrayList<>(Arrays.asList(9, 1, 2, 3));
-        ArrayList<Integer> a4 = new ArrayList<>(Arrays.asList(4, 5, 6, 7));
-
-
-        mass.add(a1);
-        mass.add(a2);
-        mass.add(a3);
-        mass.add(a4);
-
-
-        for (ArrayList<Integer> obj : mass) {
-
-            ArrayList<Integer> temp = obj;
-
-            for (Integer job : temp) {
-                System.out.printf("%4d", job);
+    public static void main(String[] args) {
+        int matrix[][] = {{1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 1, 2, 3},
+                {4, 5, 6, 7}};
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+            }
+        }
+        System.out.println();
+        System.out.println("Начальная матрица");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.printf("%4d", matrix[i][j]);
             }
             System.out.println();
         }
-        System.out.println("\nПеревернутая");
-
-
-        Collections.reverse(mass);
-        for (ArrayList<Integer> obj : mass) {
-            ArrayList<Integer> temp = obj;
-            for (Integer job : temp) {
-                System.out.printf("%4d", job);
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i + 1; j < matrix.length; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        System.out.println("Обратная матрица");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.printf("%4d", matrix[i][j]);
             }
             System.out.println();
         }
